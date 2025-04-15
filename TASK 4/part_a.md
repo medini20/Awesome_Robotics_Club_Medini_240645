@@ -39,6 +39,9 @@ Key Specifications:
 2\. Motion Tracking  
 The platform’s surface consists of two conductive layers separated by spacers. When the ball rolls, its weight presses the layers together at the contact point, creating a measurable change in resistance. The system applies voltages across the X and Y axes, measuring the resulting voltage drops to determine the X, Y coordinates of the pressure point.
 
+Mechanism:
+The touchpad reads the position of the ball, waits 20 milliseconds, and reads the position of the ball again. The program then calculates the terms in the PID algorithm. The output is fed to the inverse kinematic equations. These equations derive the position to move each stepper motor in order to achieve the platform's projected orientation. With the new stepper motor positions, the speed and acceleration of the motors are calculated and set. The motors are then moved to their target positions which put the platform in the orientation that best slows the ball down and moves it to the center. The process is then repeated.
+
 3\. Pros and Cons  
 Pros: 
 
